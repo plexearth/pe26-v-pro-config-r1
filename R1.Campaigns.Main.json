@@ -1,0 +1,307 @@
+{
+  "sysStrings": {
+    "URL_ON_SIGN_IN_WELCOME_IMAGE": "[$URL_ROOT_CDN]/campaigns/001-signin-welcome/image.jpg",
+    "URL_ON_SIGN_IN_WELCOME_GOTO_LEARN": "[$URL_PAGE_WELCOME_LEARNMORE]?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=welcome_message&utm_campaign=onboarding",
+    "URL_ON_SWITCH_TO_LITE_IMAGE": "[$URL_ROOT_CDN]/campaigns/005-switch-to-lite/image.jpg",
+    "URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_IMAGE": "[$URL_ROOT_CDN]/campaigns/004-expired-trial/image.jpg",
+    "URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_PRICING": "[$URL_PAGE_PRICING]?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_trial_expired&utm_campaign=upgrade&wky=[$wky]",
+    "URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_CONTACT": "[$URL_PAGE_CONTACT_SALES]?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_trial_expired&utm_campaign=upgrade&wky=[$wky]",
+    "URL_NEARMAP_REQUESTACCESS_IMAGE": "[$URL_ROOT_CDN]/campaigns/103-nearmap/image.jpg",
+    "URL_NEARMAP_REQUESTACCESS_LOGO": "[$URL_ROOT_CDN]/campaigns/103-nearmap/logo.png",
+    "URL_NEARMAP_REQUESTACCESS_GOTO_LEARN": "campaigns/103-nearmap/gotoLearn?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_nearmap_deny&utm_campaign=providers&wky=[$wky]",
+    "URL_NEARMAP_REQUESTACCESS_ON_ACCEPT": "campaigns/103-nearmap/gotoAccept?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_nearmap_deny&utm_campaign=providers&wky=[$wky]",
+    "URL_HEXAGON_REQUESTACCESS_IMAGE": "[$URL_ROOT_CDN]/campaigns/102-hexagon/image.jpg",
+    "URL_HEXAGON_REQUESTACCESS_LOGO": "[$URL_ROOT_CDN]/campaigns/102-hexagon/logo.png",
+    "URL_HEXAGON_REQUESTACCESS_GOTO_LEARN": "campaigns/102-hexagon/gotoLearn?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_hexagon_deny&utm_campaign=providers&wky=[$wky]",
+    "URL_HEXAGON_REQUESTACCESS_ON_ACCEPT": "campaigns/102-hexagon/gotoAccept?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_hexagon_deny&utm_campaign=providers&wky=[$wky]"
+  },
+  "sysSelections": {
+    "DAYS_TO_EXPIRE_TEXT": {
+      "resDefault": "soon",
+      "statements": [
+        {
+          "type": "if",
+          "condSet": {
+            "conditions": [
+              {
+                "type": "double",
+                "operator": ">=",
+                "value": "[var:[DAYS_TO_EXPIRE]]",
+                "compareTo": "2"
+              }
+            ]
+          },
+          "result": "in [var:[DAYS_TO_EXPIRE]] days"
+        },
+        {
+          "type": "if",
+          "condSet": {
+            "conditions": [
+              {
+                "type": "double",
+                "operator": "==",
+                "value": "[var:[DAYS_TO_EXPIRE]]",
+                "compareTo": "1"
+              }
+            ]
+          },
+          "result": "tomorrow"
+        },
+        {
+          "type": "if",
+          "condSet": {
+            "conditions": [
+              {
+                "type": "double",
+                "operator": "==",
+                "value": "[var:[DAYS_TO_EXPIRE]]",
+                "compareTo": "0"
+              }
+            ]
+          },
+          "result": "today"
+        }
+      ]
+    }
+  },
+  "sysCampaigns": {
+    "ON_SIGN_IN_WELCOME": {
+      "isEnabled": "true",
+      "entryItems": [
+        {
+          "isEnabled": "true",
+          "action": {
+            "type": "gotoNotif",
+            "notifId": "ON_SIGN_IN_WELCOME",
+            "isEnabled": "[tag:[Sta.Settings.UX.ShowWelcome]] ?? true"
+          }
+        }
+      ]
+    },
+    "ON_SWITCH_TO_LITE": {
+      "isEnabled": "true",
+      "entryItems": [
+        {
+          "isEnabled": "true",
+          "action": {
+            "type": "gotoNotif",
+            "notifId": "ON_SWITCH_TO_LITE",
+            "isEnabled": "true"
+          }
+        }
+      ]
+    }
+  },
+  "sysNotifs": {
+    "ON_SIGN_IN_WELCOME": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='[$string:URL_ON_SIGN_IN_WELCOME_IMAGE]'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H1}' Foreground='#FFF' TextWrapping='Wrap'>Welcome to Plex-Earth Pro!</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#FFF' TextWrapping='Wrap'>Get the best view of your project area.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='action:gotoLearn'>Click here to learn more</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnOnEsc": "left",
+      "btnOnEnter": "left",
+      "btnLeft": {
+        "text": "Skip",
+        "dlgRes": "true"
+      },
+      "btnRight": {
+        "text": "Learn Plex-Earth",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_ON_SIGN_IN_WELCOME_GOTO_LEARN]"
+        }
+      },
+      "btnWinClose": {
+        "dlgRes": "true"
+      },
+      "hasCbx": "true",
+      "cbxText": "Don't show again",
+      "onCbxSelected": {
+        "type": "basic",
+        "setData": {
+          "tags": {
+            "Sta.Settings.UX.ShowWelcome": "false"
+          }
+        }
+      },
+      "title": "Welcome to Plex-Earth Pro 2026",
+      "namedActions": {
+        "gotoLearn": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_ON_SIGN_IN_WELCOME_GOTO_LEARN]"
+        }
+      }
+    },
+    "ON_SWITCH_TO_LITE": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='[$string:URL_ON_SWITCH_TO_LITE_IMAGE]'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H1}' Foreground='#FFF' TextWrapping='Wrap'>Switch to Lite</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#FFF' TextWrapping='Wrap'>Get Plex-Earth's free edition.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support Team for more info</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnLeft": {
+        "text": "Close",
+        "dlgRes": "false"
+      },
+      "btnRight": {
+        "text": "Switch",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "custom",
+          "customData": "{\"type\":\"switchEdition\",\"target\":\"LITE\",\"migrationConfig\":{\"appId\":\"50CD86C9373F4CC4A79B59D7AFEB145B\",\"appName\":\"Plex-Earth Lite\",\"planId\":\"DB1AF7B4B52A4287BB84A45EF5C047D8\",\"planName\":\"Plex-Earth Lite\"}}"
+        },
+        "dlgRes": "true",
+        "runAfterDlg": "true"
+      },
+      "title": "Upgrade to Pro!"
+    },
+    "ON_CONSUMABLES_CREDITS_LIMIT_REACHED": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>You reached the Credits limit in your account.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Get the best view of your project area.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support Team for more info</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnLeft": {
+        "text": "Close",
+        "dlgRes": "false"
+      },
+      "btnRight": {
+        "text": "Contact us!",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:[$EMAIL_SUPPORT]]"
+        }
+      },
+      "title": "Images Limit Reached"
+    },
+    "ON_CONSUMABLES_IMAGES_LIMIT_REACHED": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>You reached the consumable Images limit in your account.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Get the best view of your project area.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support Team for more info</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnLeft": {
+        "text": "Close",
+        "dlgRes": "false"
+      },
+      "btnRight": {
+        "text": "Contact us!",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:[$EMAIL_SUPPORT]]"
+        }
+      },
+      "title": "Images Limit Reached"
+    },
+    "ON_TRIAL_EXPIRES_SOON": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='[$string:URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_IMAGE]'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H1}' Foreground='#FFF' TextWrapping='Wrap'>Your Plex-Earth free trial expires [select:[DAYS_TO_EXPIRE_TEXT]]!</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#FFF' TextWrapping='Wrap'>Come to Plex-Earth world - Design for the real world!<LineBreak/>Upgrade your free trial to a subscription today<LineBreak/>and change the way you design forever.</TextBlock></TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='action:gotoPricing'>See your upgrade options!</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnLeft": {
+        "text": "Maybe later",
+        "dlgRes": "true"
+      },
+      "btnRight": {
+        "text": "See pricing!",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_PRICING]"
+        }
+      },
+      "btnAction": {
+        "text": "Contact our sales team",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_CONTACT]"
+        }
+      },
+      "btnWinClose": {
+        "dlgRes": "true"
+      },
+      "title": "Your free trial expires soon",
+      "namedActions": {
+        "gotoPricing": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_ON_SIGN_IN_EXPIRES_SOON_TRIAL_PRICING]"
+        }
+      }
+    },
+    "ON_WIN_CLOSE_BUTTON": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='8'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri=''></Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnLeft": {
+        "text": "Yes",
+        "dlgRes": "true"
+      },
+      "btnRight": {
+        "text": "No",
+        "dlgRes": "false"
+      },
+      "title": "Confirm"
+    },
+    "ON_NEARMAP_NOT_ENABLED": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock Opacity='1'><Image Width='900' Source='[$string:URL_NEARMAP_REQUESTACCESS_IMAGE]'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.80'/></DockPanel.Background><StackPanel Margin='24'><Image Width='200' HorizontalAlignment='Left' Source='[$string:URL_NEARMAP_REQUESTACCESS_LOGO]'/><TextBlock Style='{DynamicResource H3}' Foreground='White' TextWrapping='Wrap'>We've partnered with Nearmap to bring its</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='White' TextWrapping='Wrap'>unparallel aerial imagery right into your AutoCAD designs</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='White' TextWrapping='Wrap'>through Plex-Earth's awarded platform.</TextBlock><TextBlock Style='{DynamicResource H4}'><Hyperlink Foreground='{DynamicResource ThemeModernOrange}' NavigateUri='action:gotoLearn'>Do you want Nearmap in Plex-Earth? Let's talk!</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnOnEsc": "left",
+      "btnOnEnter": "right",
+      "btnLeft": {
+        "text": "Skip",
+        "dlgRes": "true"
+      },
+      "btnRight": {
+        "text": "Talk to us!",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_NEARMAP_REQUESTACCESS_ON_ACCEPT]"
+        },
+        "dlgRes": "true"
+      },
+      "btnWinClose": {
+        "dlgRes": "true"
+      },
+      "title": "Let's talk about Nearmap!",
+      "namedActions": {
+        "gotoLearn": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_NEARMAP_REQUESTACCESS_GOTO_LEARN]"
+        }
+      }
+    },
+    "ON_HEXAGON_NOT_ENABLED": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock Opacity='1'><Hyperlink NavigateUri='action:gotoLearn'><Image Width='900' Source='[$string:URL_HEXAGON_REQUESTACCESS_IMAGE]'/></Hyperlink></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#F0F0F0' Opacity='0.80'/></DockPanel.Background><StackPanel Margin='24'><Image Width='200' HorizontalAlignment='Left' Source='[$string:URL_HEXAGON_REQUESTACCESS_LOGO]'/><TextBlock Style='{DynamicResource H1}' Foreground='#101010' TextWrapping='Wrap'>Get true aerial orthophotos</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#101010' TextWrapping='Wrap'>at 15 cm class resolution right into your AutoCAD designs</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#101010' TextWrapping='Wrap'>through Plex-Earth's awarded platform.</TextBlock><TextBlock Style='{DynamicResource H4}'><Hyperlink Foreground='{DynamicResource ThemeModernOrange}' NavigateUri='action:gotoLearn'>Do you want Hexagon in Plex-Earth? Ask us!</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnOnEsc": "left",
+      "btnOnEnter": "right",
+      "btnLeft": {
+        "text": "Skip",
+        "dlgRes": "true"
+      },
+      "btnRight": {
+        "text": "Talk to us!",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_HEXAGON_REQUESTACCESS_ON_ACCEPT]"
+        },
+        "dlgRes": "true"
+      },
+      "btnWinClose": {
+        "dlgRes": "true"
+      },
+      "title": "Let's talk about Hexagon!",
+      "namedActions": {
+        "gotoLearn": {
+          "type": "gotoUrl",
+          "url": "[$string:URL_HEXAGON_REQUESTACCESS_GOTO_LEARN]"
+        }
+      }
+    }
+  }
+}
