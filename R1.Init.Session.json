@@ -1,6 +1,11 @@
 {
   "sysAppData": {
     "versionConfigs": {
+      "25": {
+        "repoUrl": "https://pe26-v-pro-config-r1.plexearth360.com",
+        "earthDataUrl": "https://plexdeliverynetwork.blob.core.windows.net/public/csList.v014.2024-09-18.json",
+        "file": "R1.VersionCustomizations"
+      },
       "26": {
         "repoUrl": "https://pe26-v-pro-config-r1.plexearth360.com",
         "earthDataUrl": "https://plexdeliverynetwork.blob.core.windows.net/public/csList.v014.2024-09-18.json",
