@@ -8,19 +8,18 @@
       "hasSplashScreen": "true",
       "canSwitchEdition": "true",
       "activationConfig": {
-        "title": "Plex-Earth Pro (RC)",
-        "header": "Plex-Earth Pro (RC)",
+        "title": "Plex-Earth Pro Activation",
         "icon": "[$URL_GLOBAL_CDN]/assets/app/logo.png",
         "canTrial": "true",
         "trialRef": "0E527C1317044060A53134C3DFC80292",
-        "trialHeader": "Explore Plex-Earth Pro (RC)",
-        "trialText": "Run Plex-Earth Pro (Release Candidate) for 30 days—no credit card needed.",
-        "trialButtonText": "Try It Now >",
+        "trialHeader": "Try Plex-Earth Pro for Free!",
+        "trialText": "Get full access to Plex-Earth Pro for 7 days—no credit card required!",
+        "trialButtonText": "Start Free Trial >",
         "trialButtonIcon": "[$URL_GLOBAL_CDN]/assets/app/icons/outline_rocket_launch_white_48dp.png",
         "trialLearnMoreText": "",
         "canActivateCode": "true",
-        "activateCodeHeader": "Activate Your Subscription",
-        "activateCodeText": "Unlock advanced tools and access premium data to enhance your design experience.",
+        "activateCodeHeader": "<Span Foreground='#DD6B45'>🗝️</Span><LineBreak/>Activate Your License",
+        "activateCodeText": "Have an activation code? Enter it below to get started.",
         "messageActivationRequiredTitle": "Activation Required",
         "messageActivationRequiredText": "To get started with Plex-Earth Pro, you need to activate it on this computer. You can either start a 7-day free trial or activate your subscription.<LineBreak/><LineBreak/>Please proceed with activation now.",
         "messageActivationRequiredAcceptButtonText": "Yes, Proceed Now",
@@ -110,7 +109,7 @@
         "foreClr": "#FFF",
         "dlgRes": "true"
       },
-      "title": "Welcome to Plex-Earth Pro!"
+      "title": "Welcome to Plex-Earth Pro"
     },
     "onSubcriptionExpiredMessage": {
       "type": "dialog",
@@ -151,7 +150,7 @@
         "foreClr": "#FFF",
         "dlgRes": "true"
       },
-      "title": "Welcome to Plex-Earth Pro!"
+      "title": "Welcome to Plex-Earth Pro"
     },
     "onTrialExpiredMessage_Pro": {
       "type": "dialog",
@@ -265,13 +264,13 @@
     "onSwitchEditionMessage_Lite": {
       "type": "dialog",
       "isModal": "true",
-      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Upgrade To Plex-Earth Pro!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Get everything with our full edition.<LineBreak/></TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Upgrade To Plex-Earth Pro</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Get everything with our full edition.<LineBreak/></TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
       "btnLeft": {
         "text": "Cancel",
         "dlgRes": "false"
       },
       "btnRight": {
-        "text": "✓Switch to Pro!",
+        "text": "✓Switch to Pro",
         "backClr": "#DD6B45",
         "foreClr": "#FFF",
         "action": {
@@ -281,7 +280,7 @@
         "dlgRes": "true",
         "runAfterDlg": "true"
       },
-      "title": "Upgrade To Plex-Earth Pro!"
+      "title": "Upgrade To Plex-Earth Pro"
     }
   },
   "sysRefs": {}

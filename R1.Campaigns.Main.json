@@ -96,7 +96,7 @@
     "ON_SIGN_IN_WELCOME": {
       "type": "dialog",
       "isModal": "true",
-      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='[$string:URL_ON_SIGN_IN_WELCOME_IMAGE]'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H1}' Foreground='#FFF' TextWrapping='Wrap'>Welcome to Plex-Earth Pro!</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#FFF' TextWrapping='Wrap'>Get the best view of your project area.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='action:gotoLearn'>Click here to learn more</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='[$string:URL_ON_SIGN_IN_WELCOME_IMAGE]'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H1}' Foreground='#FFF' TextWrapping='Wrap'>Welcome to Plex-Earth Pro</TextBlock><TextBlock Style='{DynamicResource H3}' Foreground='#FFF' TextWrapping='Wrap'>Get the best view of your project area.</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Hyperlink Foreground='#DD6B45' NavigateUri='action:gotoLearn'>Click here to learn more</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
       "btnOnEsc": "left",
       "btnOnEnter": "left",
       "btnLeft": {
@@ -125,7 +125,7 @@
           }
         }
       },
-      "title": "Welcome to Plex-Earth Pro 2026",
+      "title": "Welcome to Plex-Earth Pro",
       "namedActions": {
         "gotoLearn": {
           "type": "gotoUrl",
@@ -152,7 +152,7 @@
         "dlgRes": "true",
         "runAfterDlg": "true"
       },
-      "title": "Upgrade to Pro!"
+      "title": "Upgrade to Pro"
     },
     "ON_CONSUMABLES_CREDITS_LIMIT_REACHED": {
       "type": "dialog",
