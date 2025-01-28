@@ -171,47 +171,32 @@
     "Imagery.New": {
       "isAllowed": "[var:[HAS_IMAGERY]]"
     },
-    "Imagery.AddAsMosaic": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
-    },
-    "Imagery.AddAsSingle": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
-    },
-    "Imagery.AddAsTimeline": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
-    },
     "Imagery.New.Mosaic": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
+      "isAllowed": "[var:[CAN_CREATE_IMAGERY_MOSAIC]]"
     },
     "Imagery.New.Single": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
+      "isAllowed": "[var:[CAN_CREATE_IMAGERY_RASTER]]"
     },
     "Imagery.New.Timeline": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
+      "isAllowed": "[var:[CAN_CREATE_IMAGERY_TIMELINE]]"
     },
-    "Imagery.AddTiles": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
+    "Imagery.Mosaics.CanAddTiles": {
+      "isAllowed": "[var:[CAN_CREATE_IMAGERY_MOSAIC]]"
+    },
+    "Imagery.Timelines.CanAddView": {
+      "isAllowed": "[var:[CAN_CREATE_IMAGERY_TIMELINE]]"
     },
     "Imagery.Tools": {
-      "isAllowed": "[var:[HAS_IMAGERY]]"
-    },
-    "Timeviews.AddView": {
       "isAllowed": "[var:[HAS_IMAGERY]]"
     },
     "Terrain.New": {
       "isAllowed": "[var:[HAS_TERRAIN]]"
     },
-    "Terrain.New.FromGeoTIFF": {
-      "isAllowed": "[var:[HAS_GEOTIFF]]"
-    },
-    "Terrain.Drape": {
-      "isAllowed": "[var:[HAS_TERRAIN]]"
-    },
     "Terrain.Tools": {
       "isAllowed": "[var:[HAS_TERRAIN]]"
     },
-    "Terrain.Derivatives": {
-      "isAllowed": "[var:[HAS_TERRAIN]]"
+    "Terrain.Advanced": {
+      "isAllowed": "[var:[HAS_TERRAIN_ADVANCED]]"
     },
     "Kml.Export": {
       "isAllowed": "[var:[HAS_KML]]"

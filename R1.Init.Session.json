@@ -19,6 +19,7 @@
     "HAS_TIMEVIEWS": "true",
     "HAS_IMAGERY": "true",
     "HAS_TERRAIN": "true",
+    "HAS_TERRAIN_ADVANCED": "true",
     "HAS_GEOTIFF": "true",
     "HAS_POI": "true",
     "HAS_SITE_AREAS": "true",
