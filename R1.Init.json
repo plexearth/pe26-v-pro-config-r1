@@ -61,33 +61,13 @@
             }
           },
           "LITE": {
-            "isVisible": "true",
+            "isVisible": "false",
             "isEnabled": "true",
             "title": "<Bold>⚡Lite</Bold>",
             "subTitle": "Our Free Edition<LineBreak/>For Everyone",
             "text": "Includes:<LineBreak/>✔ View-only Images from Google Maps<LineBreak/>✔ Standard Google Earth Tools",
             "button": {
               "text": "<Bold>Switch to Lite</Bold>"
-            }
-          },
-          "4": {
-            "isVisible": "true",
-            "isEnabled": "true",
-            "title": "<Bold>🛠️ Basic</Bold>",
-            "subTitle": "Essential Tools<LineBreak/>For Small-Scale Projects",
-            "text": "Includes:<LineBreak/>✔ Standard Imagery and Terrain Tools<LineBreak/>✔ Google Earth, KML and Raster Tools",
-            "button": {
-              "text": "<Bold>Switch to Basic</Bold>"
-            }
-          },
-          "5": {
-            "isVisible": "true",
-            "isEnabled": "true",
-            "title": "<Bold>🛠️ Basic</Bold>",
-            "subTitle": "Essential Tools<LineBreak/>For Small-Scale Projects",
-            "text": "Includes:<LineBreak/>✔ Standard Imagery and Terrain Tools<LineBreak/>✔ Google Earth, KML and Raster Tools",
-            "button": {
-              "text": "<Bold>Switch to Basic</Bold>"
             }
           }
         }
