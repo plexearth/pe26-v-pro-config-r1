@@ -290,8 +290,8 @@
         }
       },
       "A97102AA-5D3C-4455-A9FC-CBDA451615B4": {
-        "isAvail": "[var:[HAS_PREMIUM]]",
-        "isEnabled": "[var:[HAS_PREMIUM]]",
+        "isAvail": "[var:[VARTAG_STA_SETTINGS_IS_DEV]]",
+        "isEnabled": "[var:[VARTAG_STA_SETTINGS_IS_DEV]]",
         "name": "NearmapTx",
         "desc": "<TextBlock FontSize='8' Padding='4 2' Background='#FFBF00' Foreground='#101010'>💎 Premium</TextBlock> <TextBlock FontSize='8' Padding='4 2' Background='#FFF' Foreground='#101010'>🛩 Aerial</TextBlock> | Historical Datasets | US - Australia - New Zealand | Urban Areas",
         "icon": "[$URL_GLOBAL_CDN]/assets/providers/nearmap/icon.png",

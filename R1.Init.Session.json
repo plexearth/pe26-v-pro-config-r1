@@ -44,7 +44,8 @@
     "VARTAG_NEARMAP_ZOOM_MAX": "[tag:[Sub.Settings.Nearmap.MaxZoom]] ?? 21",
     "VARTAG_NEARMAP_ZOOM_MIN": "[tag:[Sub.Settings.Nearmap.MinZoom]] ?? 21",
     "VARTAG_NEARMAP_CUSTOM_KEY": "[tag:[Sub.Permissions.HasNearmapAPI]] ?? false",
-    "VARTAG_GOOGLE_MAPS_ZOOM_MAX": "[tag:[Sub.Settings.GoogleMaps.MaxZoom]] ?? 21"
+    "VARTAG_GOOGLE_MAPS_ZOOM_MAX": "[tag:[Sub.Settings.GoogleMaps.MaxZoom]] ?? 21",
+    "VARTAG_STA_SETTINGS_IS_DEV": "[tag:[Sta.Settings.IsDev]] ?? false"
   },
   "sysStrings": {},
   "sysConstants": {},

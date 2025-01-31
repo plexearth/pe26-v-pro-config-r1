@@ -33,6 +33,64 @@
         "messageUnhandledErrorText": "Please contact our Support Team at <Hyperlink NavigateUri='[$EMAIL_SUPPORT]'>support@plexscape.com</Hyperlink>",
         "onGotoTrialLearnMore": "https://plexearth.com",
         "onGotoServicePlans": "https://plexearth.com/pricing"
+      },
+      "switchConfig": {
+        "title": "Switch",
+        "header": "Choose Edition to Switch To",
+        "text": "<Hyperlink NavigateUri='[$URL_PAGE_SWITCH_COMPARE_EDITIONS]'>Compare Editions</Hyperlink>",
+        "icon": "[$URL_GLOBAL_CDN]/assets/app/logo.png",
+        "items": {
+          "BASIC": {
+            "isVisible": "true",
+            "isEnabled": "true",
+            "title": "<Bold>🛠️ Basic</Bold>",
+            "subTitle": "Essential Tools<LineBreak/>For Small-Scale Projects",
+            "text": "Includes:<LineBreak/>✔ Standard Imagery and Terrain Tools<LineBreak/>✔ Google Earth, KML and Raster Tools",
+            "button": {
+              "text": "<Bold>Switch to Basic</Bold>"
+            }
+          },
+          "PRO": {
+            "isVisible": "true",
+            "isEnabled": "false",
+            "title": "<Bold>🚀 Pro</Bold>",
+            "subTitle": "Advanced Capabilities<LineBreak/>For Any Project",
+            "text": "Everything:<LineBreak/>✔ Advanced Imagery and Mosaics Tools<LineBreak/>✔ Advanced Terrain and Analysis Tools<LineBreak/>✔ Access to Premium Providers<LineBreak/>✔ Google Earth, KML and Raster Tools",
+            "button": {
+              "text": "You are currently using Pro"
+            }
+          },
+          "LITE": {
+            "isVisible": "true",
+            "isEnabled": "true",
+            "title": "<Bold>⚡Lite</Bold>",
+            "subTitle": "Our Free Edition<LineBreak/>For Everyone",
+            "text": "Includes:<LineBreak/>✔ View-only Images from Google Maps<LineBreak/>✔ Standard Google Earth Tools",
+            "button": {
+              "text": "<Bold>Switch to Lite</Bold>"
+            }
+          },
+          "4": {
+            "isVisible": "true",
+            "isEnabled": "true",
+            "title": "<Bold>🛠️ Basic</Bold>",
+            "subTitle": "Essential Tools<LineBreak/>For Small-Scale Projects",
+            "text": "Includes:<LineBreak/>✔ Standard Imagery and Terrain Tools<LineBreak/>✔ Google Earth, KML and Raster Tools",
+            "button": {
+              "text": "<Bold>Switch to Basic</Bold>"
+            }
+          },
+          "5": {
+            "isVisible": "true",
+            "isEnabled": "true",
+            "title": "<Bold>🛠️ Basic</Bold>",
+            "subTitle": "Essential Tools<LineBreak/>For Small-Scale Projects",
+            "text": "Includes:<LineBreak/>✔ Standard Imagery and Terrain Tools<LineBreak/>✔ Google Earth, KML and Raster Tools",
+            "button": {
+              "text": "<Bold>Switch to Basic</Bold>"
+            }
+          }
+        }
       }
     },
     "cui": {
@@ -83,6 +141,7 @@
     "[$URL_PAGE_WELCOME_LEARNMORE]": "[$URL_PAGE_GOTO_PLUGIN]/welcome",
     "[$URL_PAGE_PRICING]": "[$URL_PAGE_GOTO_PLUGIN]/pricing",
     "[$URL_PAGE_UPGRADE]": "[$URL_PAGE_GOTO_PLUGIN]/upgrade",
+    "[$URL_PAGE_SWITCH_COMPARE_EDITIONS]": "[$URL_PAGE_GOTO_PLUGIN]/switch_compare",
     "[$URL_PAGE_CONTACT_SALES]": "[$URL_PAGE_GOTO_PLUGIN]/sales",
     "[$URL_PAGE_CONTACT_SUPPORT]": "[$URL_PAGE_GOTO_PLUGIN]/support",
     "[$URL_PRODUCT]": "[$URL_PAGE_GOTO_PLUGIN]/website",
