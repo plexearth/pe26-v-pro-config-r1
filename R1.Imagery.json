@@ -289,6 +289,54 @@
           ]
         }
       },
+      "A97102AA-5D3C-4455-A9FC-CBDA451615B4": {
+        "isAvail": "[var:[HAS_PREMIUM]]",
+        "isEnabled": "[var:[HAS_PREMIUM]]",
+        "name": "NearmapTx",
+        "desc": "<TextBlock FontSize='8' Padding='4 2' Background='#FFBF00' Foreground='#101010'>💎 Premium</TextBlock> <TextBlock FontSize='8' Padding='4 2' Background='#FFF' Foreground='#101010'>🛩 Aerial</TextBlock> | Historical Datasets | US - Australia - New Zealand | Urban Areas",
+        "icon": "[$URL_GLOBAL_CDN]/assets/providers/nearmap/icon.png",
+        "copyright": "Image ©[$year] Nearmap",
+        "defaultZoom": "21",
+        "minZoom": "[var:[VARTAG_NEARMAP_ZOOM_MIN]]",
+        "maxZoom": "[var:[VARTAG_NEARMAP_ZOOM_MAX]]",
+        "dispOrder": "1000",
+        "hasDatasets": "true",
+        "isBasemap": "true",
+        "isTimeviews": "false",
+        "isPremium": "true",
+        "isAerial": "true",
+        "isSatellite": "false",
+        "isAutoSuggested": "false",
+        "hasGlobalCoverage": "false",
+        "tileOverlap": "0.001,0.05",
+        "allowCustomKey": "[var:[VARTAG_NEARMAP_CUSTOM_KEY]]",
+        "useCloud": "true",
+        "creditsPerImage": "[$CORE_CREDITS_PER_IMAGE_NEARMAP]",
+        "permissions": {
+          "canDynamicView": "false",
+          "canImageryAsMosaic": "true",
+          "canImageryAsRaster": "false",
+          "canSave": "true",
+          "canConvertToRaster": "true",
+          "canPrint": "true"
+        },
+        "poi": {
+          "isAllowed": "true"
+        },
+        "resources": {
+          "onNewMosaic": [
+            "Providers.Nearmap.Mosaics"
+          ],
+          "onTileCapture": [
+            "Providers.Nearmap.Images",
+            "Global.Images.Premium"
+          ],
+          "onCreditConsumption": [
+            "Providers.Nearmap.Credits"
+          ]
+        },
+        "msgNotEnabled": "ON_NEARMAP_NOT_ENABLED"
+      },
       "6E4C1F7C-9CFD-4A94-87A0-93A5E93C3F5F": {
         "isAvail": "[$CORE_SWITCH_NEARMAP] ?? true",
         "isEnabled": "[var:[HAS_PREMIUM]]",
