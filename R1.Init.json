@@ -6,6 +6,7 @@
       "downloadUrl": "https://goto.plexearth.com/pe26-pro/plugin/download",
       "pricingUrl": "https://goto.plexearth.com/pe26-pro/plugin/pricing",
       "hasSplashScreen": "true",
+      "canActivation": "true",
       "canSwitchEdition": "true",
       "activationConfig": {
         "title": "Plex-Earth Pro Activation",
@@ -18,7 +19,7 @@
         "trialButtonIcon": "[$URL_GLOBAL_CDN]/assets/app/icons/outline_rocket_launch_white_48dp.png",
         "trialLearnMoreText": "",
         "canActivateCode": "true",
-        "activateCodeHeader": "<Span Foreground='#DD6B45'>🗝️</Span><LineBreak/>Activate Your License",
+        "activateCodeHeader": "Activate Your License",
         "activateCodeText": "Have an activation code? Enter it below to get started.",
         "messageActivationRequiredTitle": "Activation Required",
         "messageActivationRequiredText": "To get started with Plex-Earth Pro, you need to activate it on this computer. You can either start a 7-day free trial or activate your subscription.<LineBreak/><LineBreak/>Please proceed with activation now.",
@@ -31,6 +32,8 @@
         "messageCodeSuccessfullyActivatedText": "Your subscription has been activated successfully!<LineBreak/><LineBreak/>You now have access to all the features of Plex-Earth Pro. Enjoy designing with premium tools and data.",
         "messageCodeSuccessfullyActivatedButtonText": "Finish",
         "messageUnhandledErrorText": "Please contact our Support Team at <Hyperlink NavigateUri='[$EMAIL_SUPPORT]'>support@plexscape.com</Hyperlink>",
+        "onTrialExpired": "onTrialExpired",
+        "onSubscriptionExpired": "onSubExpired",
         "onGotoTrialLearnMore": "https://plexearth.com",
         "onGotoServicePlans": "https://plexearth.com/pricing"
       },
@@ -134,26 +137,58 @@
   "sysSelections": {},
   "sysCommands": {},
   "sysCommandLimitSets": {},
-  "sysNamedActions": {},
+  "sysNamedActions": {
+    "onTrialExpired": {
+      "type": "gotoNotif",
+      "notifId": "onTrialExpired_Message"
+    },
+    "onSubExpired": {
+      "type": "gotoNotif",
+      "notifId": "onSubExpired_Message"
+    }
+  },
   "sysNamedFuncs": {},
   "sysCampaigns": {},
   "sysNotifs": {
-    "onActivationSuccessMessage": {
+    "onTrialExpired_Message": {
       "type": "dialog",
       "isModal": "true",
-      "content": "Plex-Earth has been activated successfully!",
-      "btnRight": {
-        "text": "Start!",
-        "backClr": "#000",
-        "foreClr": "#FFF",
-        "dlgRes": "true"
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='https://images.squarespace-cdn.com/content/v1/5fa3d53abe63881b6cb388a4/1737653827897-FIWGCYVUWF0Q0UY3YE6G/shutterstock_2459700179_1920x1080.jpg?format=2500w'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Your Free Trial Has Ended – What’s Next?</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'><LineBreak/>You have two options:<LineBreak/>1) <Bold>Upgrade to one of our service plans</Bold><LineBreak/>&#160;&#160;&#160;For full access to all features.<LineBreak/>2) <Bold>Continue with Plex-Earth Lite</Bold><LineBreak/>&#160;&#160;&#160;Our free edition, to keep using basic features.<LineBreak/></TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "btnLeft": {
+        "text": "✓Continue with Lite",
+        "action": {
+          "type": "custom",
+          "customData": "{\"type\":\"switchEdition\",\"target\":\"LITE\"}"
+        },
+        "dlgRes": "true",
+        "runAfterDlg": "true"
       },
-      "title": "Welcome to Plex-Earth Pro"
+      "btnRight": {
+        "text": "↑ See all plans!",
+        "backClr": "#DD6B45",
+        "foreClr": "#FFF",
+        "action": {
+          "type": "gotoUrl",
+          "url": "[$URL_PAGE_PRICING]?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_trial_expired&utm_campaign=upgrade&wky=[$wky]"
+        }
+      },
+      "btnAction": {
+        "text": "I already have an Activation Code",
+        "backClr": "#F5F5F5",
+        "foreClr": "#101010",
+        "action": {
+          "type": "custom",
+          "customData": "{\"type\":\"sendStringToExecute\",\"cmd\":\".PXV_ACTIVATE_CODE\\n\"}"
+        },
+        "dlgRes": "true",
+        "runAfterDlg": "true"
+      },
+      "title": "Your Free Trial Has Ended – Keep Designing with Plex-Earth!"
     },
-    "onSubcriptionExpiredMessage": {
+    "onSubExpired_Message": {
       "type": "dialog",
       "isModal": "true",
-      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Your Subscription Has Expired – Renew Now!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Keep up with your competitive advantage!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
+      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source='https://images.squarespace-cdn.com/content/v1/5fa3d53abe63881b6cb388a4/1737653827897-FIWGCYVUWF0Q0UY3YE6G/shutterstock_2459700179_1920x1080.jpg?format=2500w'/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Your Subscription Has Expired – Renew Now!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Keep up with your competitive advantage!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
       "btnLeft": {
         "text": "Renew now!",
         "backClr": "#000",
@@ -179,6 +214,18 @@
         "runAfterDlg": "true"
       }
     },
+    "onActivationSuccessMessage": {
+      "type": "dialog",
+      "isModal": "true",
+      "content": "Plex-Earth has been activated successfully!",
+      "btnRight": {
+        "text": "Start!",
+        "backClr": "#000",
+        "foreClr": "#FFF",
+        "dlgRes": "true"
+      },
+      "title": "Welcome to Plex-Earth Pro"
+    },
     "onTrialSuccessMessage_Pro": {
       "type": "dialog",
       "isModal": "true",
@@ -190,41 +237,6 @@
         "dlgRes": "true"
       },
       "title": "Welcome to Plex-Earth Pro"
-    },
-    "onTrialExpiredMessage_Pro": {
-      "type": "dialog",
-      "isModal": "true",
-      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Your Free Trial Has Ended – What’s Next?</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'><LineBreak/>You have two options:<LineBreak/>1) <Bold>Upgrade to one of our service plans</Bold><LineBreak/>&#160;&#160;&#160;For full access to all features.<LineBreak/>2) <Bold>Continue with Plex-Earth Lite</Bold><LineBreak/>&#160;&#160;&#160;Our free edition, to keep using basic features.<LineBreak/></TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
-      "btnLeft": {
-        "text": "✓Continue with Lite",
-        "action": {
-          "type": "custom",
-          "customData": "{\"type\":\"switchEdition\",\"target\":\"LITE\"}"
-        },
-        "dlgRes": "true",
-        "runAfterDlg": "true"
-      },
-      "btnRight": {
-        "text": "↑ See all plans!",
-        "backClr": "#DD6B45",
-        "foreClr": "#FFF",
-        "action": {
-          "type": "gotoUrl",
-          "url": "[$URL_PAGE_UPGRADE]?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_trial_expired&utm_campaign=upgrade&wky=[$wky]"
-        }
-      },
-      "btnAction": {
-        "text": "I already have an Activation Code",
-        "backClr": "#F5F5F5",
-        "foreClr": "#101010",
-        "action": {
-          "type": "custom",
-          "customData": "{\"type\":\"sendStringToExecute\",\"cmd\":\".PXV_ACTIVATE_CODE\\n\"}"
-        },
-        "dlgRes": "true",
-        "runAfterDlg": "true"
-      },
-      "title": "Your Free Trial Has Ended – Keep Designing with Plex-Earth!"
     },
     "onSwitchEditionMessage_Pro": {
       "type": "dialog",
@@ -246,80 +258,6 @@
         "runAfterDlg": "true"
       },
       "title": "Switch To Plex-Earth Lite!"
-    },
-    "onLiteActivationSuccessMessage": {
-      "type": "dialog",
-      "isModal": "true",
-      "content": "Plex-Earth Lite has been activated successfully!",
-      "btnRight": {
-        "text": "Start!",
-        "backClr": "#000",
-        "foreClr": "#FFF",
-        "dlgRes": "true"
-      },
-      "title": "Welcome to Plex-Earth Lite!"
-    },
-    "onLiteSubscriptionExpiredMessage": {
-      "type": "dialog",
-      "isModal": "true",
-      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Your Subscription Has Expired – Renew Now!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Keep up with your competitive advantage!</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
-      "btnLeft": {
-        "text": "Renew now!",
-        "backClr": "#000",
-        "foreClr": "#FFF",
-        "action": {
-          "type": "gotoUrl",
-          "url": "[$URL_PAGE_UPGRADE]?utm_source=[$HOST_PLATFORM_REF]-[$PROD_REF]&utm_medium=in_app_message&utm_term=on_lite_expired&utm_campaign=upgrade&wky=[$wky]"
-        }
-      },
-      "btnRight": {
-        "text": "Close",
-        "dlgRes": "false"
-      },
-      "btnAction": {
-        "text": "I already have an Activation Code",
-        "backClr": "#F5F5F5",
-        "foreClr": "#101010",
-        "action": {
-          "type": "custom",
-          "customData": "{\"type\":\"sendStringToExecute\",\"cmd\":\".PXV_ACTIVATE_CODE\\n\"}"
-        },
-        "dlgRes": "true",
-        "runAfterDlg": "true"
-      }
-    },
-    "onTrialSuccessMessage_Lite": {
-      "type": "dialog",
-      "isModal": "true",
-      "content": "Your Plex-Earth Lite has just started!",
-      "btnRight": {
-        "text": "Start!",
-        "backClr": "#000",
-        "foreClr": "#FFF",
-        "dlgRes": "true"
-      },
-      "title": "Welcome to Plex-Earth Lite!"
-    },
-    "onSwitchEditionMessage_Lite": {
-      "type": "dialog",
-      "isModal": "true",
-      "content": "<Grid VerticalAlignment='Center' MaxWidth='900'><TextBlock><Image Width='900' Source=''/></TextBlock><StackPanel><DockPanel Margin='24'><DockPanel.Background><SolidColorBrush Color='#101010' Opacity='0.9'/></DockPanel.Background><StackPanel Margin='24'><TextBlock Style='{DynamicResource H2}' Foreground='#FFF' TextWrapping='Wrap'>Upgrade To Plex-Earth Pro</TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF' TextWrapping='Wrap'>Get everything with our full edition.<LineBreak/></TextBlock><TextBlock Style='{DynamicResource H4}' Foreground='#FFF'><Run>Need assistance or more information?&#160; </Run><Hyperlink Foreground='#DD6B45' NavigateUri='[$URL_PAGE_CONTACT_SUPPORT]'>Contact Support</Hyperlink></TextBlock></StackPanel></DockPanel></StackPanel></Grid>",
-      "btnLeft": {
-        "text": "Cancel",
-        "dlgRes": "false"
-      },
-      "btnRight": {
-        "text": "✓Switch to Pro",
-        "backClr": "#DD6B45",
-        "foreClr": "#FFF",
-        "action": {
-          "type": "custom",
-          "customData": "{\"type\":\"switchEdition\",\"target\":\"PRO\"}"
-        },
-        "dlgRes": "true",
-        "runAfterDlg": "true"
-      },
-      "title": "Upgrade To Plex-Earth Pro"
     }
   },
   "sysRefs": {}
