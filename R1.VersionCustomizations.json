@@ -15,6 +15,7 @@
       }
     },
     "dataKeys": {
+      "ipCountry": "Data.IPCountry",
       "tagHost": "Data.Host",
       "tagPlatform": "Data.Platform",
       "tagProduct": "Data.Product",
