@@ -17,8 +17,10 @@
     "dataKeys": {
       "ipCountry": "Data.IPCountry",
       "tagHost": "Data.Host",
-      "tagHostSerialNumber": "Data.Host.SerialNumber",
+      "tagHostSerialNumber": "Data.Host.X.SerialNumber",
       "tagHostVersion": "Data.Host.Version",
+      "tagHostUserName": "Data.Host.X.UserName",
+      "tagHostOnlineUserId": "Data.Host.X.OnlineUserId",
       "tagPlatform": "Data.Platform",
       "tagProduct": "Data.Product",
       "tagInstaller": "Data.Installer",
